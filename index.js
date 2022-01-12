@@ -84,6 +84,6 @@ app.post('/get_message', function (req, res) {
     }
 })
 
-pp.listen(app.get('port'), function () {
+app.listen(app.get('port'), function () {
     console.log("running: port")
 });
