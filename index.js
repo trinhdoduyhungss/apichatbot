@@ -7,6 +7,8 @@ import express from 'express'
 let app = express();
 import bodyParser from 'body-parser'
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(function (req, res, next) { 
     //allow cross origin requests
 	res.setHeader("Access-Control-Allow-Origin", "*");
