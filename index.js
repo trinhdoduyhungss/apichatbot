@@ -19,8 +19,8 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
+    res.send('<h1> Hello World! </h1>');
     console.log(req.headers['x-forwarded-for']);
-    res.send('Hello World!')
 })
 
 
