@@ -1,0 +1,278 @@
+{
+    "1": [
+        {
+            "text": "hello",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "bạn là ai",
+            "rule": "user"
+        },
+        {
+            "text": "Mình là Timi - trợ lý ảo đồng hành cùng bạn, giải đáp các thắc mắc của công ty. Mình thích được trò chuyện, giúp đỡ mọi người mỗi ngày. Mong muốn của mình là trở thành người bạn của tất cả nhân viên trong công ty\n",
+            "rule": "bot"
+        },
+        {
+            "text": "chủ tịch nước là ai",
+            "rule": "user"
+        },
+        {
+            "text": "Xin lỗi mình không biết ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hi",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "bạn là người nào",
+            "rule": "user"
+        },
+        {
+            "text": "Mình là Timi - trợ lý ảo Ftech.ai. Rất vui khi được trò chuyện với bạn và giúp giải đáp các thắc mắc về công ty.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "ai là bạn",
+            "rule": "user"
+        },
+        {
+            "text": "Mình là Timi - trợ lý ảo Ftech.ai. Rất vui khi được trò chuyện với bạn và giúp giải đáp các thắc mắc về công ty.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "Ftech có ai",
+            "rule": "user"
+        },
+        {
+            "text": "Ftech được thành lập từ tháng 01 năm 2019, là nơi quy tụ đội ngũ kỹ sư, chuyên gia hàng đầu về nghiên cứu và xây dựng các giải pháp công nghệ phục vụ hệ sinh thái gia đình bao gồm giải trí, giáo dục, thương mại điện tử, y tế, giao tiếp xã hội ...\n",
+            "rule": "bot"
+        },
+        {
+            "text": "Ftech có tuyển thực tập sinh chưa có kinh nghiệm không",
+            "rule": "user"
+        },
+        {
+            "text": "Ftech vẫn đang tuyển dụng ứng viên ở nhiều vị trí, bạn vui lòng gửi cv và nếu rõ vị trí ứng tuyển vào email tuyendung@ftech.ai (full time) hoặc tuyendung_svtt@ftech.ai (đối với sinh viên thực tập)\n Bạn có thể tham khảo chi tiết các vị trí tuyển dụng tại đây : https://ftech.ai/recruitment\n",
+            "rule": "bot"
+        },
+        {
+            "text": "địa chỉ của văn phòng Đà Nẵng",
+            "rule": "user"
+        },
+        {
+            "text": "Công ty đang có 3 văn phòng:\n - Văn phòng Hà Nội có địa chỉ tại tầng 5, 8, 9, số 434 Trần Khát Chân, Hai Bà Trưng, Hà Nội\n - Văn phòng Đà Nẵng nằm ở tầng 11, tòa nhà Thành Lợi 2, số 3 Lê Đình Lý, Vĩnh Trung, Thanh Khê, Đà Nẵng\n - Văn phòng Hồ Chí Minh tọa lạc tại tầng 6, tòa nhà eTown 2, 364 Đường Cộng Hòa, P13, Quận Tân Bình, TP Hồ Chí Minh.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "anh Quang CV là ai",
+            "rule": "user"
+        },
+        {
+            "text": "Xin lỗi mình không biết ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "anh Quang bên CV ấy",
+            "rule": "user"
+        },
+        {
+            "text": "Dạ xin lỗi, mình không thể trả lời câu này ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "đi chơi đi",
+            "rule": "user"
+        },
+        {
+            "text": "Mình còn bận học trên Fschool: https://fschool.vn/ nên không đi được đâu\n",
+            "rule": "bot"
+        },
+        {
+            "text": "có gì trên Fschool",
+            "rule": "user"
+        },
+        {
+            "text": "Thông tin này mình không thể cung cấp được ạ, bạn vui lòng liên hệ với bộ phận HR để biết thêm ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "có gì trên Fschool",
+            "rule": "user"
+        },
+        {
+            "text": "Thông tin này mình không thể cung cấp được ạ, bạn vui lòng liên hệ với bộ phận HR để biết thêm ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "HR công ty là ai",
+            "rule": "user"
+        },
+        {
+            "text": "Bạn có thể ứng tuyển vào Ftech để tìm hiểu nhé.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "Bên mình ứng tuyển như nào ạ",
+            "rule": "user"
+        },
+        {
+            "text": "Ftech vẫn đang tuyển dụng ứng viên ở nhiều vị trí, bạn vui lòng gửi cv và nêu rõ vị trí ứng tuyển vào email tuyendung@ftech.ai (full time) hoặc tuyendung_svtt@ftech.ai (đối với sinh viên thực tập)\n Bạn có thể tham khảo chi tiết các vị trí tuyển dụng tại đây : https://ftech.ai/recruitment\n",
+            "rule": "bot"
+        },
+        {
+            "text": "bên mình bài test khó không ạ",
+            "rule": "user"
+        },
+        {
+            "text": "FTECH thường chỉ phỏng vấn 1 vòng, có 1 số vị trí sẽ có bài test hoặc phỏng vấn vòng 2 ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "phỏng vấn khó không ạ",
+            "rule": "user"
+        },
+        {
+            "text": "Dạ, Bạn liên hệ với bộ phận hành chính nhân sự bên mình để biết thêm ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "ai là giám đốc công ty",
+            "rule": "user"
+        },
+        {
+            "text": "Bạn có thể ứng tuyển vào Ftech để tìm hiểu nhé.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "ai là chủ tịch",
+            "rule": "user"
+        },
+        {
+            "text": "Dạ mình xin phép không trả lời câu này ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "chủ tịch công ty là ai",
+            "rule": "user"
+        },
+        {
+            "text": "Mình không biết ạ\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hi",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, rất vui khi được trò chuyện với bạn\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hi",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hello",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, rất vui khi được trò chuyện với bạn\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hello",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "xin chào",
+            "rule": "user"
+        },
+        {
+            "text": "Xin chào, mình là trợ lý ảo Timi. Mình ở đây để giúp đỡ bạn giải đáp thắc mắc về công ty, trò chuyện cùng bạn, hỗ trợ bạn khi cần thiết.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hi",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "xin chào",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "chào",
+            "rule": "user"
+        },
+        {
+            "text": "Xin chào, mình là trợ lý ảo Timi. Mình ở đây để giúp đỡ bạn giải đáp thắc mắc về công ty, trò chuyện cùng bạn, hỗ trợ bạn khi cần thiết.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "hi",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        }
+    ],
+    "118.69.70.245": [
+        {
+            "text": "xin chào",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "chào bạn nhá",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, mình là trợ lý ảo Timi, mình có thể giúp bạn được gì ạ.\n",
+            "rule": "bot"
+        },
+        {
+            "text": "34 Đà Nẵng chào mọi người nhá",
+            "rule": "user"
+        },
+        {
+            "text": "Chào bạn, rất vui khi được trò chuyện với bạn\n",
+            "rule": "bot"
+        },
+        {
+            "text": "bạn là ai thế",
+            "rule": "user"
+        },
+        {
+            "text": "Mình là Timi - trợ lý ảo Ftech.ai. Rất vui khi được trò chuyện với bạn và giúp giải đáp các thắc mắc về công ty.\n",
+            "rule": "bot"
+        }
+    ]
+}
