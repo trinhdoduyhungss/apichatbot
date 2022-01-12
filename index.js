@@ -29,10 +29,9 @@ app.get('/', function (req, res) {
 app.post('/send_message', function (req, res) {
     let data_post = req.body;
     let message = data_post.text;
-    let user_id = data_post.ip;
-    console.log(req.ips);
+    let user_id = data_post.token;
     if (req.headers['x-forwarded-for']) {
-        user_id = req.headers['x-forwarded-for'];
+        user_id = req.headers['x-forwarded-for']+'_'+user_id;
     }
     if(data_conv[user_id]){
         data_conv[user_id].push({
@@ -75,9 +74,9 @@ app.post('/send_message', function (req, res) {
 
 app.post('/get_message', function (req, res) {
     let data_post = req.body;
-    let user_id = data_post.ip;
+    let user_id = data_post.token;
     if(req.headers['x-forwarded-for']){
-        user_id = req.headers['x-forwarded-for'];
+        user_id = req.headers['x-forwarded-for']+'_'+user_id;
     }
     if(data_conv[user_id]){
         res.send(JSON.stringify({"results":data_conv[user_id]}));
