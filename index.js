@@ -30,9 +30,10 @@ app.post('/send_message', function (req, res) {
     let data_post = req.body;
     let message = data_post.text;
     let user_id = data_post.token;
-    if (req.headers['x-forwarded-for']) {
-        user_id = req.headers['x-forwarded-for']+'_'+user_id;
-    }
+    let api_test = data_post.api_test;
+    // if (req.headers['x-forwarded-for']) {
+    //     user_id = req.headers['x-forwarded-for']+'_'+user_id;
+    // }
     if(data_conv[user_id]){
         data_conv[user_id].push({
             'text': message,
@@ -45,7 +46,7 @@ app.post('/send_message', function (req, res) {
             'rule': 'user'
         }];
     }
-    fetch('https://va-ftech.dev.ftech.ai/rocketchat/send_message/1',{
+    fetch(api_test,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -59,13 +60,29 @@ app.post('/send_message', function (req, res) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        let last_mess = data_conv[user_id][data_conv[user_id].length-1];
+        let last_time_stamp = new Date().getTime();
+        if(last_mess.rule == 'bot'){
+            last_time_stamp = last_mess.time_stamp;
+        }
         data_conv[user_id].push({
             'text': data.text,
-            'rule': 'bot'
+            'rule': 'bot',
+            'time_stamp': new Date().getTime()
         });
         fs.writeFileSync('data_conv.json', JSON.stringify(data_conv));
         data['rule'] = 'bot';
+        let last_online = new Date().getTime()-last_time_stamp;
+        if(last_online > 60000){
+            // convert to minutes or hours
+            if(last_online > 3600000){
+                data['time_stamp'] = Math.floor(last_online/3600000)+' hours ago';
+            }else{
+                data['time_stamp'] = Math.floor(last_online/60000)+' minutes ago';
+            } 
+        }else{
+            data['time_stamp'] = 'Just now';
+        }
         res.send(data);
     })
     .catch(error => console.error(error))
@@ -75,16 +92,34 @@ app.post('/send_message', function (req, res) {
 app.post('/get_message', function (req, res) {
     let data_post = req.body;
     let user_id = data_post.token;
-    if(req.headers['x-forwarded-for']){
-        user_id = req.headers['x-forwarded-for']+'_'+user_id;
-    }
+    // if(req.headers['x-forwarded-for']){
+    //     user_id = req.headers['x-forwarded-for']+'_'+user_id;
+    // }
     if(data_conv[user_id]){
-        res.send(JSON.stringify({"results":data_conv[user_id]}));
+        let last_mess = data_conv[user_id][data_conv[user_id].length-1];
+        let last_time_stamp = new Date().getTime();
+        if(last_mess.rule == 'bot'){
+            last_time_stamp = last_mess.time_stamp;
+        }
+        let last_online = new Date().getTime()-last_time_stamp;
+        if(last_online > 60000){
+            // convert to minutes or hours
+            if(last_online > 3600000){
+                last_online = Math.floor(last_online/3600000)+' hours ago';
+            }else{
+                last_online = Math.floor(last_online/60000)+' minutes ago';
+            }
+        }else{
+            last_online = 'Just now';
+        }
+        res.send(JSON.stringify({"results":data_conv[user_id], "time_stamp":last_online}));
     }else{
-        res.send(JSON.stringify({"results":[]}));
+        res.send(JSON.stringify({"results":[], "time_stamp":"offline"}));
     }
 })
 
 app.listen(app.get('port'), function () {
     console.log("running: port")
 });
+
+
