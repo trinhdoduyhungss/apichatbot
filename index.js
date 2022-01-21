@@ -25,6 +25,9 @@ app.get('/', function (req, res) {
     console.log(req.headers['x-forwarded-for']);
 })
 
+api.get('/ip', function (req, res) {
+    res.send(req.headers['x-forwarded-for']);
+})
 
 app.post('/send_message', function (req, res) {
     let data_post = req.body;
