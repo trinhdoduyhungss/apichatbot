@@ -1,5 +1,7 @@
 import fs from 'fs'
 import fetch from 'node-fetch'
+import puppeteer from 'puppeteer'
+
 let data_conv = fs.readFileSync('data_conv.json', 'utf8')
 data_conv = JSON.parse(data_conv);
 
@@ -119,6 +121,46 @@ app.post('/get_message', function (req, res) {
     }else{
         res.send(JSON.stringify({"results":[], "time_stamp":"offline"}));
     }
+})
+
+
+async function crawl(url) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    // try get the first image url that doesn't contain 'data:image' in the page if not found then get the logo url
+    let imageUrl = await page.evaluate(() => {
+        const image = document.querySelector("img");
+        if (image) {
+            const src = image.getAttribute("src");
+            if (src.indexOf("data:image") === -1) {
+                return src;
+            }
+        }
+        const logo = document.querySelector("link[rel='icon']");
+        if (logo) {
+            return logo.getAttribute("href");
+        }
+        return null;
+    });
+    if(imageUrl.search("https://") === -1) {
+        // remove the '/' at the end of the url
+        url = url.substring(0, url.length - 1);
+        imageUrl = url.trim('/') + imageUrl;
+    }
+    let titlePage = await page.title();
+    await browser.close();
+    // return a array contain the image url and the title of the page
+    return [imageUrl, titlePage];
+}
+
+app.get('/data_web', function(req, res){
+    let url = req.query.url;
+    // read result from the crawl function without Promise
+    const result = crawl(url);
+    result.then(function(data){
+        res.send(JSON.stringify({"image":data[0], "title":data[1]}));
+    })
 })
 
 app.listen(app.get('port'), function () {
