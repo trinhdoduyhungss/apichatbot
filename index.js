@@ -125,7 +125,12 @@ app.post('/get_message', function (req, res) {
 
 
 async function crawl(url) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+    });
     const page = await browser.newPage();
     await page.goto(url);
     // try get the first image url that doesn't contain 'data:image' in the page if not found then get the logo url
