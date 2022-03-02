@@ -161,7 +161,18 @@ app.get('/data_web', function(req, res){
     let url = req.query.url;
     const result = crawl(url);
     result.then(function(data){
-        res.send(JSON.stringify({"image":data[0], "title":data[1]}));
+        res.send(data);
+    })
+})
+
+app.get('/test', function(req, res){
+    fetch('https://apichatbotcomet.herokuapp.com/data_web?url=https://ftech.ai/',{
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(response => response.json()).then(data => {
+        res.send(data);
     })
 })
 
