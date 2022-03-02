@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
     res.setHeader("Access-Control-Allow-Credentials", "true");
 	res.header("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
 	res.header("Access-Control-Max-Age", "3600");
-	res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+	res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Accept");
 	next();
 });
 
@@ -37,9 +37,6 @@ app.post('/send_message', function (req, res) {
     let message = data_post.text;
     let user_id = data_post.token;
     let api_test = data_post.api_test;
-    // if (req.headers['x-forwarded-for']) {
-    //     user_id = req.headers['x-forwarded-for']+'_'+user_id;
-    // }
     if(data_conv[user_id]){
         data_conv[user_id].push({
             'text': message,
