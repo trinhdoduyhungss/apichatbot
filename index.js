@@ -4,6 +4,7 @@ import puppeteer from 'puppeteer'
 
 let data_conv = fs.readFileSync('data_conv.json', 'utf8')
 data_conv = JSON.parse(data_conv);
+let checkURL = {}
 
 import express from 'express'
 let app = express();
@@ -121,7 +122,6 @@ app.post('/get_message', function (req, res) {
     }
 })
 
-
 async function crawl(url) {
     const browser = await puppeteer.launch({
         args: [
@@ -140,29 +140,49 @@ async function crawl(url) {
                 return src;
             }
         }
-        const logo = document.querySelector("link[rel='icon']");
+        const logo = document.querySelector("img[alt='logo']");
         if (logo) {
-            return logo.getAttribute("href");
+            return logo.getAttribute("src");
         }
         return null;
     });
-    if(imageUrl.search("https://") === -1) {
-        // remove the '/' at the end of the url
-        url = url.substring(0, url.length - 1);
-        imageUrl = url.trim('/') + imageUrl;
+    if(imageUrl){
+        if(imageUrl.search("https://") === -1) {
+            // remove the '/' at the end of the url
+            url = url.substring(0, url.length - 1);
+            imageUrl = url.trim('/') + imageUrl;
+        }
+        let titlePage = await page.title();
+        await browser.close();
+        // return a array contain the image url and the title of the page
+        return [imageUrl, titlePage];
+    }else{
+        await browser.close();
+        return null;
     }
-    let titlePage = await page.title();
-    await browser.close();
-    // return a array contain the image url and the title of the page
-    return [imageUrl, titlePage];
 }
 
 app.get('/data_web', function(req, res){
     let url = req.query.url;
-    const result = crawl(url);
-    result.then(function(data){
-        res.send(data);
-    })
+    if(url in checkURL){
+        return res.send(checkURL[url]);
+    }else{
+        const result = crawl(url);
+        result.then(function(data){
+            checkURL[url] = data;
+            res.send(data);
+        }).catch(function(err){
+            let url_get = req.query.url;
+            url_get = url_get.split('/');
+            let main_url = url_get[0]+'//'+url_get[2];
+            console.log(main_url);
+            const result = crawl(main_url);
+            result.then(function(data){
+                checkURL[url] = data;
+                res.send(data);
+            })
+        });
+    }
 })
 
 app.get('/test', function(req, res){
@@ -172,7 +192,7 @@ app.get('/test', function(req, res){
             'Content-Type': 'application/json',
         },
     }).then(response => response.json()).then(data => {
-        res.send(data);
+        res.send(JSON.stringify(data));
     })
 })
 
